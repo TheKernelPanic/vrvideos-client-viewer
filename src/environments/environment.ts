@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   applicationServer: {
-    host: 'http://localhost'
+    host: 'http://localhost:8081'
   },
 };
 
