@@ -4,7 +4,7 @@ export interface CdnHost {
 }
 
 export interface Category {
-  slug: string;
+  slug?: string;
   canonical_name: string;
 }
 

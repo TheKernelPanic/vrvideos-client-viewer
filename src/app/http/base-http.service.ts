@@ -6,7 +6,7 @@ import {Inject, Injectable} from "@angular/core";
 })
 export abstract class BaseHttpService {
 
-  protected constructor(
+  public constructor(
     protected httpClient: HttpClient,
     @Inject('APPLICATION_SERVER_HOST') protected readonly host: string
   ) {
