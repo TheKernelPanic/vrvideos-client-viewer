@@ -8,6 +8,9 @@ import { CategorySelectorComponent } from './category-selector/category-selector
 import {MatDialogModule} from "@angular/material/dialog";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
+import { ListCriteriaSelectorComponent } from './list-criteria-selector/list-criteria-selector.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -15,19 +18,23 @@ import {MatButtonModule} from "@angular/material/button";
     HeaderComponent,
     VrVideoCardComponent,
     WrapperViewComponent,
-    CategorySelectorComponent
+    CategorySelectorComponent,
+    ListCriteriaSelectorComponent
   ],
-    exports: [
-        HeaderComponent,
-        VrVideoCardComponent,
-        WrapperViewComponent
-    ],
+  exports: [
+    HeaderComponent,
+    VrVideoCardComponent,
+    WrapperViewComponent,
+    ListCriteriaSelectorComponent
+  ],
   imports: [
     CommonModule,
     MatProgressSpinnerModule,
     MatDialogModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

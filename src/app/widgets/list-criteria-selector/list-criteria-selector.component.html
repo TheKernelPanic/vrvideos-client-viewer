@@ -1,0 +1,13 @@
+<div>
+  <div>
+
+  </div>
+  <div>
+    <mat-label>Sort by</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let option of sortOptions" [value]="option.value">
+        {{option.rawText}}
+      </mat-option>
+    </mat-select>
+  </div>
+</div>
