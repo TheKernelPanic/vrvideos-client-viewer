@@ -12,10 +12,11 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     VrVideoCardComponent,
     WrapperViewComponent
   ],
-  exports: [
-    HeaderComponent,
-    VrVideoCardComponent
-  ],
+    exports: [
+        HeaderComponent,
+        VrVideoCardComponent,
+        WrapperViewComponent
+    ],
     imports: [
         CommonModule,
         MatProgressSpinnerModule

@@ -1,5 +1,10 @@
 <div class="wrapper-content">
   <div>
-
+    <div *ngIf="!loader; else spinner">
+      <ng-content></ng-content>
+    </div>
+    <ng-template #spinner>
+      <mat-progress-spinner color="accent" mode="indeterminate"></mat-progress-spinner>
+    </ng-template>
   </div>
 </div>
