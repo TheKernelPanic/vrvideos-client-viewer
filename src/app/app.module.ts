@@ -8,10 +8,12 @@ import {environment} from "../environments/environment";
 import {HttpClientModule} from "@angular/common/http";
 import {WidgetsModule} from "./widgets/widgets.module";
 import {VrVideosModule} from "./vr-videos/vr-videos.module";
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
-      AppComponent
+      AppComponent,
+      ErrorComponent
   ],
   imports: [
     BrowserModule,
