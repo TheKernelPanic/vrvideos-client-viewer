@@ -11,6 +11,7 @@ import {MatButtonModule} from "@angular/material/button";
 import { ListCriteriaSelectorComponent } from './list-criteria-selector/list-criteria-selector.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
+import { ActressSelectorComponent } from './actress-selector/actress-selector.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {MatSelectModule} from "@angular/material/select";
     VrVideoCardComponent,
     WrapperViewComponent,
     CategorySelectorComponent,
-    ListCriteriaSelectorComponent
+    ListCriteriaSelectorComponent,
+    ActressSelectorComponent
   ],
   exports: [
     HeaderComponent,
