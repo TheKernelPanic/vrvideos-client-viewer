@@ -1,0 +1,65 @@
+:host {
+  >div {
+    .vr-video-card {
+      background-color: white;
+      display: flex;
+      flex-wrap: wrap;
+      .thumbnail {
+        position: relative;
+        flex: 0 0 40%;
+        max-width: 40%;
+        display: flex;
+        justify-content: center;
+        img {
+          width: 90%;
+        }
+        span {
+          position: absolute;
+          bottom: 5px;
+          right: 5px;
+          background-color: #fbe3ec;
+          color: #c2185b;
+          font-weight: bold;
+          font-size: 1.3rem;
+          padding: 2px 3px;
+          outline: solid 2px #c2185b;
+        }
+      }
+      .content {
+        flex: 0 0 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        max-width: 60%;
+        >div {
+          margin: 10px 0;
+          padding: 0 0 0 2rem;
+          box-sizing: border-box;
+        }
+        .actresses-list {
+          display: block;
+          >div {
+            font-weight: bold;
+            font-size: 1rem;
+            color: #c2185b;
+          }
+        }
+        .fav {
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          button {
+            margin: 0 1rem;
+          }
+        }
+        .action {
+          display: flex;
+          justify-content: flex-end;
+          button {
+            margin: 0 1rem;
+          }
+        }
+      }
+    }
+  }
+}

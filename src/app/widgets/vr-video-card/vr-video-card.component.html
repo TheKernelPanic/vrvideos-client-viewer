@@ -1,5 +1,32 @@
 <div>
-  <div *ngIf="vrVideo">
-   
+  <div class="vr-video-card" *ngIf="vrVideo">
+    <div class="thumbnail">
+      <img src="./assets/image/default.jpg" alt="VR Video image" />
+      <img src="./assets/image/default.jpg" alt="VR Video image" />
+      <span>
+        {{vrVideo.width | rawResolution}}
+      </span>
+    </div>
+    <div class="content">
+      <div class="fav">
+        <button mat-icon-button>
+          <mat-icon>favorite</mat-icon>
+        </button>
+      </div>
+      <div>
+        {{vrVideo.description}}
+      </div>
+      <div class="actresses-list">
+        <div *ngFor="let actress of vrVideo.actresses">
+          {{actress.name}}
+        </div>
+      </div>
+      <div class="action">
+        <button mat-raised-button color="primary" (click)="view()">
+          View
+        </button>
+      </div>
+    </div>
+
   </div>
 </div>

@@ -9,13 +9,11 @@ import {HttpClientModule} from "@angular/common/http";
 import {WidgetsModule} from "./widgets/widgets.module";
 import {VrVideosModule} from "./vr-videos/vr-videos.module";
 import { ErrorComponent } from './error/error.component';
-import { RawResolutionPipe } from './pipes/raw-resolution.pipe';
 
 @NgModule({
   declarations: [
       AppComponent,
-      ErrorComponent,
-      RawResolutionPipe
+      ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -29,8 +27,7 @@ import { RawResolutionPipe } from './pipes/raw-resolution.pipe';
     providers: [
         {provide: 'APPLICATION_SERVER_HOST', useValue: environment.applicationServer.host}
     ],
-    exports: [
-    ],
+    exports: [],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,4 +15,8 @@ export class VrVideoCardComponent implements OnInit {
   public ngOnInit(): void {
 
   }
+
+  public view(): void {
+    console.log('View video', this.vrVideo.uuid);
+  }
 }

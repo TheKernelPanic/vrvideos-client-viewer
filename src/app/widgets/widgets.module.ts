@@ -12,6 +12,10 @@ import { ListCriteriaSelectorComponent } from './list-criteria-selector/list-cri
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import { ActressSelectorComponent } from './actress-selector/actress-selector.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatIconModule} from "@angular/material/icon";
+import {RawResolutionPipe} from "../pipes/raw-resolution.pipe";
 
 
 @NgModule({
@@ -21,7 +25,8 @@ import { ActressSelectorComponent } from './actress-selector/actress-selector.co
     WrapperViewComponent,
     CategorySelectorComponent,
     ListCriteriaSelectorComponent,
-    ActressSelectorComponent
+    ActressSelectorComponent,
+    RawResolutionPipe
   ],
   exports: [
     HeaderComponent,
@@ -37,7 +42,10 @@ import { ActressSelectorComponent } from './actress-selector/actress-selector.co
     MatButtonModule,
     MatFormFieldModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule,
+    MatChipsModule,
+    MatIconModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

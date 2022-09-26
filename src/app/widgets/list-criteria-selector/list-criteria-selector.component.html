@@ -1,13 +1,30 @@
 <div>
-  <div>
-
+  <div class="filters-wrapper">
+    <div class="select-list">
+      <label>Resolution</label>
+      <select [(ngModel)]="criteria.resolution" name="resolution" (change)="changeCriteria()">
+        <option *ngFor="let option of resolutionsOptions" [value]="option.value">
+          {{option.rawText}}
+        </option>
+      </select>
+    </div>
+    <div class="select-list">
+      <label>Sort by</label>
+      <select [(ngModel)]="criteria.sort" name="sort" (change)="changeCriteria()">
+        <option *ngFor="let option of sortOptions" [value]="option.value">
+          {{option.rawText}}
+        </option>
+      </select>
+    </div>
   </div>
-  <div>
-    <mat-label></mat-label>
-    <select [(ngModel)]="criteria.sort" name="sort" (change)="onChangeCriteria.emit(criteria)">
-      <option *ngFor="let option of sortOptions" [value]="option.value">
-        {{option.rawText}}
-      </option>
-    </select>
+  <div class="chips-wrapper">
+    <mat-chip-list>
+      <mat-chip (removed)="criteria.resolution=null;changeCriteria()" *ngIf="criteria.resolution">
+        {{criteria.resolution}}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip>
+    </mat-chip-list>
   </div>
 </div>

@@ -14,7 +14,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class HomeComponent implements OnInit {
 
   public loader: boolean;
-  private vrVideos: VrVideo[];
+  public vrVideos: VrVideo[];
   private filterCollectionHelper!: FilterCollectionHelper;
 
   public constructor(
@@ -41,5 +41,9 @@ export class HomeComponent implements OnInit {
   public onChangeCriteria(criteria: Criteria): void {
 
     this.vrVideos = this.filterCollectionHelper.filter(criteria);
+  }
+
+  public trackByVrVideo(index: number, vrVideo: VrVideo): string {
+    return vrVideo.uuid;
   }
 }
