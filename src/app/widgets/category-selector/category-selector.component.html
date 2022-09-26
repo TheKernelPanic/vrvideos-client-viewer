@@ -1,0 +1,15 @@
+<mat-dialog-container>
+  <mat-dialog-content>
+    <div>
+      <form [formGroup]="formGroup">
+        <div>
+          <input type="text" formControlName="text" />
+        </div>
+      </form>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button mat-dialog-close (click)="addCategory()">Save</button>
+  </mat-dialog-actions>
+</mat-dialog-container>
