@@ -3,11 +3,11 @@
 
   </div>
   <div>
-    <mat-label>Sort by</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let option of sortOptions" [value]="option.value">
+    <mat-label></mat-label>
+    <select [(ngModel)]="criteria.sort" name="sort" (change)="onChangeCriteria.emit(criteria)">
+      <option *ngFor="let option of sortOptions" [value]="option.value">
         {{option.rawText}}
-      </mat-option>
-    </mat-select>
+      </option>
+    </select>
   </div>
 </div>

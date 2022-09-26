@@ -6,7 +6,7 @@ import { WrapperViewComponent } from './wrapper-view/wrapper-view.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { CategorySelectorComponent } from './category-selector/category-selector.component';
 import {MatDialogModule} from "@angular/material/dialog";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import { ListCriteriaSelectorComponent } from './list-criteria-selector/list-criteria-selector.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -34,7 +34,8 @@ import {MatSelectModule} from "@angular/material/select";
     ReactiveFormsModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
