@@ -3,6 +3,8 @@ import {ListingHttpService} from "../../http/vr-video/listing-http.service";
 import {VrVideo} from "../../domain/models";
 import {Router} from "@angular/router";
 import {Criteria} from "../../widgets/list-criteria-selector/list-criteria-selector.component";
+import {FilterCollectionHelper} from "../../utils/filter-collection-helper";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-home',
@@ -13,6 +15,7 @@ export class HomeComponent implements OnInit {
 
   public loader: boolean;
   private vrVideos: VrVideo[];
+  private filterCollectionHelper!: FilterCollectionHelper;
 
   public constructor(
     private httpService: ListingHttpService,
@@ -23,19 +26,20 @@ export class HomeComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    //this.loader = true;
-    //this.httpService.request().subscribe({
-    //  next: (vrVideos: VrVideo[]) => {
-    //    this.vrVideos = vrVideos;
-    //    this.loader = false;
-    //  },
-    //  error: (error: HttpErrorResponse) => {
-    //    this.router.navigate(['/error'], {queryParams: {code: error.status}}).then(null);
-    //  }
-    //});
+    this.loader = true;
+    this.httpService.request().subscribe({
+      next: (vrVideos: VrVideo[]) => {
+        this.filterCollectionHelper = new FilterCollectionHelper(vrVideos);
+        this.loader = false;
+      },
+      error: (error: HttpErrorResponse) => {
+        this.router.navigate(['/error'], {queryParams: {code: error.status}}).then(null);
+      }
+    });
   }
 
   public onChangeCriteria(criteria: Criteria): void {
-    console.log(criteria);
+
+    this.vrVideos = this.filterCollectionHelper.filter(criteria);
   }
 }
