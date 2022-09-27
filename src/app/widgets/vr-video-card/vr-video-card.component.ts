@@ -1,5 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {VrVideo} from "../../domain/models";
+import {Actress, Category, VrVideo} from "../../domain/models";
+import {MatDialog} from "@angular/material/dialog";
+import {CategorySelectorComponent} from "../category-selector/category-selector.component";
+import {AddCategoryHttpService} from "../../http/vr-video/add-category-http.service";
+import {HttpErrorResponse} from "@angular/common/http";
+import {Router} from "@angular/router";
+import {ActressSelectorComponent} from "../actress-selector/actress-selector.component";
+import {AddActressHttpService} from "../../http/vr-video/add-actress-http.service";
 
 @Component({
   selector: 'app-widgets-vr-video-card',
@@ -10,7 +17,12 @@ export class VrVideoCardComponent implements OnInit {
 
   @Input() public vrVideo!: VrVideo;
 
-  public constructor() { }
+  public constructor(
+    private dialog: MatDialog,
+    private addCategoryService: AddCategoryHttpService,
+    private addActressHttpService: AddActressHttpService,
+    private router: Router
+  ) { }
 
   public ngOnInit(): void {
 
@@ -18,5 +30,55 @@ export class VrVideoCardComponent implements OnInit {
 
   public view(): void {
     console.log('View video', this.vrVideo.uuid);
+  }
+
+  public openActressesSelector(): void {
+
+    this.dialog.open(ActressSelectorComponent, {width: '425px'}).afterClosed().subscribe({
+      next: (actress: Actress) => {
+        this.addActress(actress);
+      }
+    });
+  }
+
+  public openCategoriesSelector(): void {
+
+    this.dialog.open(CategorySelectorComponent).afterClosed().subscribe({
+      next: (category: Category) => {
+        this.addCategory(category);
+      }
+    });
+  }
+
+  private addActress(actress: Actress): void {
+
+    const found = this.vrVideo.actresses.find((a: Actress) => actress.slug === actress.slug);
+    if (found !== undefined) {
+      return;
+    }
+    this.addActressHttpService.request(this.vrVideo, actress).subscribe({
+      next: () => {
+        this.vrVideo.actresses.push(actress);
+      },
+      error: (error: HttpErrorResponse) => {
+        this.router.navigate(['/error'], {queryParams: {code: error.status}}).then(null);
+      }
+    });
+  }
+
+  private addCategory(category: Category): void {
+
+    const found = this.vrVideo.categories.find((c: Category) => c.slug === category.slug);
+    if (found !== undefined) {
+      return;
+    }
+    this.addCategoryService.request(this.vrVideo, category).subscribe({
+      next: () => {
+        this.vrVideo.categories.push(category);
+      },
+      error: (error: HttpErrorResponse) => {
+        this.router.navigate(['/error'], {queryParams: {code: error.status}}).then(null);
+      }
+    });
   }
 }

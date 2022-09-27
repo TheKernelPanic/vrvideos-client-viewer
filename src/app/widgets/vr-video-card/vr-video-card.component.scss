@@ -36,13 +36,24 @@
           padding: 0 0 0 2rem;
           box-sizing: border-box;
         }
+        .description {
+          font-weight: bold;
+          font-size: 1.3rem;
+          color: #c2185b;
+        }
+        .actresses-list, .categories-list {
+          cursor: pointer;
+          color: #c2185b;
+        }
         .actresses-list {
           display: block;
           >div {
             font-weight: bold;
             font-size: 1rem;
-            color: #c2185b;
           }
+        }
+        .categories-list {
+          font-size: 0.7rem;
         }
         .fav {
           width: 100%;
@@ -52,11 +63,18 @@
             margin: 0 1rem;
           }
         }
-        .action {
+        .footer {
           display: flex;
-          justify-content: flex-end;
-          button {
-            margin: 0 1rem;
+          justify-content: space-between;
+          >div {
+            >span {
+              font-size: 0.6rem;
+              font-weight: bold;
+              color: #c2185b;
+            }
+            button {
+              margin: 0 1rem;
+            }
           }
         }
       }

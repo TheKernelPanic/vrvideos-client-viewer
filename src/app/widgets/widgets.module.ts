@@ -16,6 +16,8 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatIconModule} from "@angular/material/icon";
 import {RawResolutionPipe} from "../pipes/raw-resolution.pipe";
+import {FileSizePipe} from "../pipes/file-size.pipe";
+import {TimeDurationPipe} from "../pipes/time-duration.pipe";
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import {RawResolutionPipe} from "../pipes/raw-resolution.pipe";
     CategorySelectorComponent,
     ListCriteriaSelectorComponent,
     ActressSelectorComponent,
-    RawResolutionPipe
+    RawResolutionPipe,
+    FileSizePipe,
+    TimeDurationPipe
   ],
   exports: [
     HeaderComponent,

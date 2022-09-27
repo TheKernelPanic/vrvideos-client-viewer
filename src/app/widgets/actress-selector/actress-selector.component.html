@@ -1,8 +1,23 @@
-<mat-dialog-content>
-  <div>
-    <input type="text" [(ngModel)]="searchText" (change)="search()" />
-  </div>
-  <div class="collection">
 
+<div>
+  <input type="text" [(ngModel)]="searchText" (keyup)="search()" />
+</div>
+<mat-dialog-content>
+  <div class="collection">
+    <div class="actress" *ngFor="let actress of this.filtered">
+      <div>
+        <img src="./assets/image/default.jpg" alt="Image actress"/>
+      </div>
+      <div>
+        <div>
+          {{actress.name}}
+        </div>
+        <div>
+          <button mat-button color="primary" (click)="select(actress)">
+            Select
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </mat-dialog-content>

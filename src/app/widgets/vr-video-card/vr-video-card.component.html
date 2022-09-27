@@ -2,7 +2,6 @@
   <div class="vr-video-card" *ngIf="vrVideo">
     <div class="thumbnail">
       <img src="./assets/image/default.jpg" alt="VR Video image" />
-      <img src="./assets/image/default.jpg" alt="VR Video image" />
       <span>
         {{vrVideo.width | rawResolution}}
       </span>
@@ -13,20 +12,43 @@
           <mat-icon>favorite</mat-icon>
         </button>
       </div>
-      <div>
+      <div class="description">
         {{vrVideo.description}}
       </div>
-      <div class="actresses-list">
+      <div class="actresses-list" (click)="openActressesSelector()">
         <div *ngFor="let actress of vrVideo.actresses">
           {{actress.name}}
         </div>
+        <mat-icon *ngIf="vrVideo.actresses.length==0">add_circle</mat-icon>
       </div>
-      <div class="action">
-        <button mat-raised-button color="primary" (click)="view()">
-          View
-        </button>
+      <div class="categories-list" (click)="openCategoriesSelector()">
+        <span *ngFor="let category of vrVideo.categories">
+          #{{category.canonical_name}}
+        </span>
+        <mat-icon *ngIf="vrVideo.categories.length==0">add_circle</mat-icon>
+      </div>
+      <div class="footer">
+        <div>
+          <span>
+            {{vrVideo.duration_seconds | timeDuration}}
+          </span>
+        </div>
+        <div>
+          <span>
+            {{vrVideo.filesize | fileSize}}
+          </span>
+        </div>
+        <div>
+          <span>
+            {{vrVideo.created_at | date : 'M/d/yy, h:mm a'}}
+          </span>
+        </div>
+        <div>
+          <button mat-raised-button color="primary" (click)="view()">
+            <mat-icon>play_circle</mat-icon> View
+          </button>
+        </div>
       </div>
     </div>
-
   </div>
 </div>
