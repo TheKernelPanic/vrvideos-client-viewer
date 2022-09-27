@@ -18,6 +18,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {RawResolutionPipe} from "../pipes/raw-resolution.pipe";
 import {FileSizePipe} from "../pipes/file-size.pipe";
 import {TimeDurationPipe} from "../pipes/time-duration.pipe";
+import {BarRatingModule} from "ngx-bar-rating";
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import {TimeDurationPipe} from "../pipes/time-duration.pipe";
     FormsModule,
     MatToolbarModule,
     MatChipsModule,
-    MatIconModule
+    MatIconModule,
+    BarRatingModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

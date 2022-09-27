@@ -8,12 +8,15 @@
     </div>
     <div class="content">
       <div class="fav">
-        <button mat-icon-button>
-          <mat-icon>favorite</mat-icon>
+        <button mat-icon-button (click)="setAsFavourite()">
+          <mat-icon [ngClass]="{'has-fav': vrVideo.favourite}">favorite</mat-icon>
         </button>
       </div>
       <div class="description">
         {{vrVideo.description}}
+      </div>
+      <div>
+        <bar-rating [(rate)]="vrVideo.rating" [max]="5" (rateChange)="onChangeRate($event)"></bar-rating>
       </div>
       <div class="actresses-list" (click)="openActressesSelector()">
         <div *ngFor="let actress of vrVideo.actresses">

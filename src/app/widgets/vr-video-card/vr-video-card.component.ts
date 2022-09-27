@@ -81,4 +81,14 @@ export class VrVideoCardComponent implements OnInit {
       }
     });
   }
+
+  public onChangeRate(value: number): void {
+    console.log(value);
+  }
+
+  public setAsFavourite(): void {
+    this.vrVideo.favourite = !this.vrVideo.favourite;
+
+    console.log('REST service request');
+  }
 }
