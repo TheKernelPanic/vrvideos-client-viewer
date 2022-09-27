@@ -22,8 +22,12 @@ export interface Actress {
   uuid: string;
   name: string;
   slug: string;
-  images_actress: ImageActress[];
+  images: ImageActress[];
   created_at: string;
+}
+
+export interface ImageVrVideo {
+  image: Image;
 }
 
 export interface HardDrive {
@@ -39,8 +43,12 @@ export interface VrVideo {
   filesize: number;
   width: number;
   height: number;
+  rating: number;
+  duration_seconds: number;
   actresses: Actress[];
   categories: Category[];
   hosted_on: CdnHost;
   backup_on: HardDrive|null;
+  created_at: string;
+  images: ImageVrVideo[];
 }
