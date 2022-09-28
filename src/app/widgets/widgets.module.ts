@@ -19,20 +19,23 @@ import {RawResolutionPipe} from "../pipes/raw-resolution.pipe";
 import {FileSizePipe} from "../pipes/file-size.pipe";
 import {TimeDurationPipe} from "../pipes/time-duration.pipe";
 import {BarRatingModule} from "ngx-bar-rating";
+import {AutocompleteVrVideoInputComponent} from "./autocomplete-vr-video-input/autocomplete-vr-video-input.component";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    VrVideoCardComponent,
-    WrapperViewComponent,
-    CategorySelectorComponent,
-    ListCriteriaSelectorComponent,
-    ActressSelectorComponent,
-    RawResolutionPipe,
-    FileSizePipe,
-    TimeDurationPipe
-  ],
+    declarations: [
+        HeaderComponent,
+        VrVideoCardComponent,
+        WrapperViewComponent,
+        CategorySelectorComponent,
+        ListCriteriaSelectorComponent,
+        ActressSelectorComponent,
+        RawResolutionPipe,
+        FileSizePipe,
+        TimeDurationPipe,
+        AutocompleteVrVideoInputComponent
+    ],
   exports: [
     HeaderComponent,
     VrVideoCardComponent,
@@ -51,7 +54,8 @@ import {BarRatingModule} from "ngx-bar-rating";
     MatToolbarModule,
     MatChipsModule,
     MatIconModule,
-    BarRatingModule
+    BarRatingModule,
+    MatAutocompleteModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

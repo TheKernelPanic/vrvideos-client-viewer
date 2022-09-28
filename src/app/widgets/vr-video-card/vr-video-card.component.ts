@@ -33,7 +33,7 @@ export class VrVideoCardComponent implements OnInit {
   }
 
   public view(): void {
-    console.log('View video', this.vrVideo.uuid);
+
   }
 
   public openActressesSelector(): void {
@@ -56,7 +56,7 @@ export class VrVideoCardComponent implements OnInit {
 
   private addActress(actress: Actress): void {
 
-    const found = this.vrVideo.actresses.find((a: Actress) => actress.slug === actress.slug);
+    const found = this.vrVideo.actresses.find((a: Actress) => a.slug === actress.slug);
     if (found !== undefined) {
       return;
     }

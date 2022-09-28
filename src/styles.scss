@@ -7,11 +7,12 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-input[type=text] {
+input[type=text], select {
   width: 100%;
   padding: 5px 4px;
   color: #c2185b;
   border: solid 1px #c2185b;
+  border-radius: 5px;
   &:focus {
     outline: none;
   }

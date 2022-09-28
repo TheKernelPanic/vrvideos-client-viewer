@@ -5,10 +5,9 @@
         <app-widgets-list-criteria-selector (onChangeCriteria)="onChangeCriteria($event)"></app-widgets-list-criteria-selector>
       </div>
       <div>
-        <ng-template ngFor let-vrVideo [ngForOf]="vrVideos" [ngForTrackBy]="trackByVrVideo">
+        <ng-template ngFor let-vrVideo [ngForOf]="currentPage" [ngForTrackBy]="trackByVrVideo">
           <app-widgets-vr-video-card [vrVideo]="vrVideo"></app-widgets-vr-video-card>
         </ng-template>
-
       </div>
     </div>
   </app-widgets-wrapper-view>

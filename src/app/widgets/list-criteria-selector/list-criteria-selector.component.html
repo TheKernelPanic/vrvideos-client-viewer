@@ -2,9 +2,9 @@
   <div class="filters-wrapper">
     <div>
       <app-widgets-autocomplete-vr-video-input
-        (onSelectActress)="criteria.actress=$event"
-        (onSelectCategory)="criteria.categories.push($event)"
-        (onSelectResolution)="criteria.resolutions.push($event)"
+        (onSelectActress)="onSelectActress($event)"
+        (onSelectCategory)="onSelectCategory($event)"
+        (onSelectResolution)="onSelectResolution($event)"
       ></app-widgets-autocomplete-vr-video-input>
     </div>
     <div class="select-list">
@@ -16,7 +16,7 @@
       </select>
     </div>
     <div>
-      <button mat-button color="primary" (click)="clear()">
+      <button mat-raised-button color="primary" (click)="clear()">
         <mat-icon>cached</mat-icon>
         Refresh
       </button>
@@ -24,19 +24,19 @@
   </div>
   <div class="chips-wrapper">
     <mat-chip-list>
-      <mat-chip (removed)="changeCriteria()" *ngFor="let resolution of criteria.resolutions">
+      <mat-chip (removed)="changeCriteria(); criteria.resolutions.splice(index, 1)" *ngFor="let resolution of criteria.resolutions; let index = index">
         {{resolution}}
         <button matChipRemove>
           <mat-icon>cancel</mat-icon>
         </button>
       </mat-chip>
-      <mat-chip (removed)="changeCriteria()" *ngFor="let category of criteria.categories">
+      <mat-chip (removed)="changeCriteria(); criteria.categories.splice(index, 1)" *ngFor="let category of criteria.categories; let index = index">
         {{category.canonical_name}}
         <button matChipRemove>
           <mat-icon>cancel</mat-icon>
         </button>
       </mat-chip>
-      <mat-chip (removed)="changeCriteria()" *ngIf="criteria.actress as actress">
+      <mat-chip (removed)="changeCriteria(); criteria.actress=null" *ngIf="criteria.actress as actress">
         {{actress.name}}
         <button matChipRemove>
           <mat-icon>cancel</mat-icon>

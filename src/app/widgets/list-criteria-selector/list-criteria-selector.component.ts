@@ -61,6 +61,10 @@ export class ListCriteriaSelectorComponent {
 
   public changeCriteria(): void {
 
+    /**
+     * TODO: Fix issue list select int -> string
+     */
+    this.criteria.sort = parseInt(this.criteria.sort.toString());
     this.onChangeCriteria.emit(this.criteria);
   }
 
@@ -78,5 +82,26 @@ export class ListCriteriaSelectorComponent {
       actress: null,
       categories: []
     };
+  }
+
+  public onSelectActress(actress: Actress): void {
+    this.criteria.actress = actress;
+    this.changeCriteria();
+  }
+
+  public onSelectResolution(resolution: string): void {
+    if (this.criteria.resolutions.includes(resolution)) {
+      return;
+    }
+    this.criteria.resolutions.push(resolution);
+    this.changeCriteria();
+  }
+
+  public onSelectCategory(category: Category): void {
+    if (this.criteria.categories.find((c: Category) => category.slug === c.slug)) {
+      return;
+    }
+    this.criteria.categories.push(category);
+    this.changeCriteria();
   }
 }

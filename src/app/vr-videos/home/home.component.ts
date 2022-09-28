@@ -38,6 +38,9 @@ export class HomeComponent implements OnInit {
         this.pages = this.paginatorHelper.getPages(
           this.collectionHelper.getCollection(null)
         );
+        if (this.pages.length) {
+          this.currentPage = this.pages[0];
+        }
         this.loader = false;
       },
       error: (error: HttpErrorResponse) => {
@@ -48,8 +51,15 @@ export class HomeComponent implements OnInit {
 
   public onChangeCriteria(criteria: Criteria): void {
 
+    console.log(criteria);
     this.pages = this.paginatorHelper.getPages(
       this.collectionHelper.getCollection(criteria)
     );
+    this.currentPage = this.pages[0];
+  }
+
+  public trackByVrVideo(index: number, vrVideo: VrVideo): string {
+
+    return vrVideo.uuid;
   }
 }

@@ -13,23 +13,34 @@ $main-color: #c2185b;
       flex-direction: row;
       justify-content: flex-end;
 
+      >div {
+        display: flex;
+
+        &:nth-child(1) {
+          flex: 0 0 45%;
+          max-width: 45%;
+          align-items: flex-end;
+        }
+        &:nth-child(2) {
+          flex: 0 0 35%;
+          max-width: 35%;
+        }
+        &:nth-child(3) {
+          flex: 0 0 20%;
+          max-width: 20%;
+          align-items: flex-end;
+          justify-content: flex-end;
+          button {
+            margin: 0 1rem;
+          }
+        }
+      }
       .select-list {
         label {
           font-size: 0.8rem;
           font-weight: bold;
           color: $main-color;
         }
-        select {
-          &:focus {
-            outline: none;
-          }
-          padding: 0.2rem 0.5rem;
-          border: solid 1px $main-color;
-          border-radius: 5px;
-          font-size: 0.7rem;
-          color: $main-color;
-        }
-        margin: 0 2rem;
         display: flex;
         flex-direction: column;
       }

@@ -8,6 +8,6 @@ import {Observable} from "rxjs";
 })
 export class SetRatingHttpService extends BaseHttpService {
   public request(vrVideo: VrVideo): Observable<void> {
-    return this.httpClient.put<void>(this.host + '/vr-video/rating/' + vrVideo.uuid + '/' + vrVideo.rating.toString(), {});
+    return this.httpClient.put<void>(this.host + '/vr-video/set-rating/' + vrVideo.uuid + '/' + vrVideo.rating.toString(), {});
   }
 }
