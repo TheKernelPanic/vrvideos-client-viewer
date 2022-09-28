@@ -7,7 +7,6 @@ import {Injectable} from "@angular/core";
   providedIn: 'root'
 })
 export class ListingHttpService extends BaseHttpService {
-
   public request(): Observable<VrVideo[]> {
     return this.httpClient.get<VrVideo[]>(this.host + '/vr-video/listing');
   }

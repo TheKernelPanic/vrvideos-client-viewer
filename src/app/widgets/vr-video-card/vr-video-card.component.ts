@@ -7,6 +7,8 @@ import {HttpErrorResponse} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {ActressSelectorComponent} from "../actress-selector/actress-selector.component";
 import {AddActressHttpService} from "../../http/vr-video/add-actress-http.service";
+import {ToggleFavouriteHttpService} from "../../http/vr-video/toggle-favourite-http.service";
+import {SetRatingHttpService} from "../../http/vr-video/set-rating-http.service";
 
 @Component({
   selector: 'app-widgets-vr-video-card',
@@ -21,7 +23,9 @@ export class VrVideoCardComponent implements OnInit {
     private dialog: MatDialog,
     private addCategoryService: AddCategoryHttpService,
     private addActressHttpService: AddActressHttpService,
-    private router: Router
+    private router: Router,
+    private toggleFavouriteHttpService: ToggleFavouriteHttpService,
+    private setRatingHttpService: SetRatingHttpService
   ) { }
 
   public ngOnInit(): void {
@@ -83,12 +87,22 @@ export class VrVideoCardComponent implements OnInit {
   }
 
   public onChangeRate(value: number): void {
-    console.log(value);
+
+    this.vrVideo.rating = value;
+    this.setRatingHttpService.request(this.vrVideo).subscribe({
+      error: (error: HttpErrorResponse) => {
+        this.router.navigate(['/error'], {queryParams: {code: error.status}}).then(null);
+      }
+    });
   }
 
   public setAsFavourite(): void {
-    this.vrVideo.favourite = !this.vrVideo.favourite;
 
-    console.log('REST service request');
+    this.vrVideo.favourite = !this.vrVideo.favourite;
+    this.toggleFavouriteHttpService.request(this.vrVideo).subscribe({
+      error: (error: HttpErrorResponse) => {
+        this.router.navigate(['/error'], {queryParams: {code: error.status}}).then(null);
+      }
+    });
   }
 }
