@@ -3,8 +3,9 @@ import {ListingHttpService} from "../../http/vr-video/listing-http.service";
 import {VrVideo} from "../../domain/models";
 import {Router} from "@angular/router";
 import {Criteria} from "../../widgets/list-criteria-selector/list-criteria-selector.component";
-import {FilterCollectionHelper} from "../../utils/filter-collection-helper";
+import {VrVideoCollectionHelper} from "../../utils/collection/vr-video-collection-helper";
 import {HttpErrorResponse} from "@angular/common/http";
+import {PaginatorHelper} from "../../utils/collection/paginator-helper";
 
 @Component({
   selector: 'app-home',
@@ -14,22 +15,29 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class HomeComponent implements OnInit {
 
   public loader: boolean;
-  public vrVideos: VrVideo[];
-  private filterCollectionHelper!: FilterCollectionHelper;
+  private collectionHelper!: VrVideoCollectionHelper;
+  private paginatorHelper: PaginatorHelper<VrVideo>;
+  public pages: VrVideo[][];
+  public currentPage:  VrVideo[];
 
   public constructor(
     private httpService: ListingHttpService,
     private router: Router
   ) {
     this.loader = false;
-    this.vrVideos = [];
+    this.pages = [];
+    this.currentPage = [];
+    this.paginatorHelper = new PaginatorHelper<VrVideo>();
   }
 
   public ngOnInit(): void {
     this.loader = true;
     this.httpService.request().subscribe({
       next: (vrVideos: VrVideo[]) => {
-        this.filterCollectionHelper = new FilterCollectionHelper(vrVideos);
+        this.collectionHelper = new VrVideoCollectionHelper(vrVideos);
+        this.pages = this.paginatorHelper.getPages(
+          this.collectionHelper.getCollection(null)
+        );
         this.loader = false;
       },
       error: (error: HttpErrorResponse) => {
@@ -40,10 +48,8 @@ export class HomeComponent implements OnInit {
 
   public onChangeCriteria(criteria: Criteria): void {
 
-    this.vrVideos = this.filterCollectionHelper.filter(criteria);
-  }
-
-  public trackByVrVideo(index: number, vrVideo: VrVideo): string {
-    return vrVideo.uuid;
+    this.pages = this.paginatorHelper.getPages(
+      this.collectionHelper.getCollection(criteria)
+    );
   }
 }
