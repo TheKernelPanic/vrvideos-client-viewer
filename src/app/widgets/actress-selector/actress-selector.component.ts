@@ -37,13 +37,12 @@ export class ActressSelectorComponent implements OnInit {
     this.listingHttpService.request().subscribe({
       next: (actresses: Actress[]) => {
         this.actresses = actresses;
-        this.filtered = actresses;
         this.loader = false;
       },
       error: (error: HttpErrorResponse) => {
         this.router.navigate(['/error'], {queryParams: {code: error.status}}).then(null);
       }
-    })
+    });
   }
 
   public search(): void {

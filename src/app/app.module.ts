@@ -25,7 +25,8 @@ import { ErrorComponent } from './error/error.component';
     VrVideosModule
   ],
     providers: [
-        {provide: 'APPLICATION_SERVER_HOST', useValue: environment.applicationServer.host}
+      {provide: 'APPLICATION_SERVER_HOST', useValue: environment.applicationServer.host},
+      {provide: 'CDN_IMAGES_HOST', useValue: environment.cdnImages.host}
     ],
     exports: [],
     bootstrap: [AppComponent]

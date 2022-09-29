@@ -17,8 +17,6 @@ $main-color: #c2185b;
         display: flex;
 
         &:nth-child(1) {
-          flex: 0 0 45%;
-          max-width: 45%;
           align-items: flex-end;
         }
         &:nth-child(2) {

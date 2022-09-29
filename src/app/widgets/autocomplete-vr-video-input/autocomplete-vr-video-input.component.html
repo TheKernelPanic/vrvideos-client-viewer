@@ -1,8 +1,11 @@
-<div>
+<div class="autocomplete-input-wrapper">
+  <div>
     <input type="text" [formControl]="control" placeholder="Search..." [matAutocomplete]="auto"/>
+  </div>
+  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayWidth" (optionSelected)="select($event)">
+    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+      {{option.raw}}
+    </mat-option>
+  </mat-autocomplete>
 </div>
-<mat-autocomplete #auto="matAutocomplete" [displayWith]="displayWidth" (optionSelected)="select($event)">
-  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-    {{option.raw}}
-  </mat-option>
-</mat-autocomplete>
+

@@ -34,6 +34,8 @@ export class VrVideoCardComponent implements OnInit {
 
   public view(): void {
 
+    const url = this.vrVideo.hosted_on.address + '/' + this.vrVideo.uuid + '/video.mp4';
+    window.open(url, "_blank");
   }
 
   public openActressesSelector(): void {
@@ -56,6 +58,9 @@ export class VrVideoCardComponent implements OnInit {
 
   private addActress(actress: Actress): void {
 
+    if (actress === undefined) {
+      return;
+    }
     const found = this.vrVideo.actresses.find((a: Actress) => a.slug === actress.slug);
     if (found !== undefined) {
       return;
@@ -72,6 +77,9 @@ export class VrVideoCardComponent implements OnInit {
 
   private addCategory(category: Category): void {
 
+    if (category === undefined) {
+      return;
+    }
     const found = this.vrVideo.categories.find((c: Category) => c.slug === category.slug);
     if (found !== undefined) {
       return;

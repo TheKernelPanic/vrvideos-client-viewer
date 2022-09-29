@@ -1,12 +1,15 @@
-
 <div>
-  <input type="text" [(ngModel)]="searchText" (keyup)="search()" />
+  <input type="text" [(ngModel)]="searchText" (keyup)="search()" placeholder="Search actress..." />
 </div>
 <mat-dialog-content>
   <div class="collection">
-    <div class="actress" *ngFor="let actress of this.filtered">
+    <span *ngIf="filtered.length as count">Found {{count}} results</span>
+    <div class="actress" *ngFor="let actress of filtered">
       <div>
-        <img src="./assets/image/default.jpg" alt="Image actress"/>
+        <img *ngIf="actress.images[0] as firstImage; else defaultImage" [src]="firstImage | imageUrlResolver" alt="Image actress"/>
+        <ng-template #defaultImage>
+          <img src="assets/image/default-actress.jpg" alt="Image actress"/>
+        </ng-template>
       </div>
       <div>
         <div>

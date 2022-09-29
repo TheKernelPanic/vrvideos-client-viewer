@@ -7,6 +7,9 @@ export const environment = {
   applicationServer: {
     host: 'http://localhost:8081'
   },
+  cdnImages: {
+    host: 'http://localhost:8001'
+  }
 };
 
 /*

@@ -1,8 +1,6 @@
-.mat-autocomplete-panel {
-  background: white;
-}
-.mat-option-text {
-  color: #c2185b;
-  text-transform: capitalize;
+.autocomplete-input-wrapper {
+  &>div {
+    padding: 0 2rem;
+  }
 }
 

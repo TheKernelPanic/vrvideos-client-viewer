@@ -51,7 +51,6 @@ export class HomeComponent implements OnInit {
 
   public onChangeCriteria(criteria: Criteria): void {
 
-    console.log(criteria);
     this.pages = this.paginatorHelper.getPages(
       this.collectionHelper.getCollection(criteria)
     );
