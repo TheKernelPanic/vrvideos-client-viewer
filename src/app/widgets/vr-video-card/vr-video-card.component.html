@@ -18,6 +18,9 @@
       <div class="description">
         {{vrVideo.description}}
       </div>
+      <div class="viewed-times">
+        <mat-icon>visibility</mat-icon>{{vrVideo.viewed_times}}
+      </div>
       <div>
         <bar-rating [(rate)]="vrVideo.rating" [max]="5" (rateChange)="onChangeRate($event)"></bar-rating>
       </div>
