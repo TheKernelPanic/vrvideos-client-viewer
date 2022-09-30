@@ -1,0 +1,15 @@
+@import '../../styles';
+
+:host {
+  .error-wrapper {
+    background-color: white;
+    min-height: 320px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    color: $primary-color;
+    text-transform: uppercase;
+  }
+}

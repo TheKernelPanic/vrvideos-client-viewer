@@ -35,12 +35,7 @@ export class HomeComponent implements OnInit {
     this.httpService.request().subscribe({
       next: (vrVideos: VrVideo[]) => {
         this.collectionHelper = new VrVideoCollectionHelper(vrVideos);
-        this.pages = this.paginatorHelper.getPages(
-          this.collectionHelper.getCollection(null)
-        );
-        if (this.pages.length) {
-          this.currentPage = this.pages[0];
-        }
+        this.onChangeCriteria(null);
         this.loader = false;
       },
       error: (error: HttpErrorResponse) => {
@@ -49,12 +44,16 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  public onChangeCriteria(criteria: Criteria): void {
+  public onChangeCriteria(criteria: Criteria|null): void {
 
     this.pages = this.paginatorHelper.getPages(
       this.collectionHelper.getCollection(criteria)
     );
-    this.currentPage = this.pages[0];
+    if (this.pages.length) {
+      this.currentPage = this.pages[0];
+    } else {
+      this.currentPage = [];
+    }
   }
 
   public trackByVrVideo(index: number, vrVideo: VrVideo): string {
