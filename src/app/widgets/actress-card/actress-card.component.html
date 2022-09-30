@@ -1,0 +1,18 @@
+<div class="actress-wrapper">
+  <div>
+    <img *ngIf="actress.images[0] as firstImage; else defaultImage" [src]="firstImage | imageUrlResolver" alt="Image actress"/>
+    <ng-template #defaultImage>
+      <img src="assets/image/default-actress.jpg" alt="Image actress"/>
+    </ng-template>
+  </div>
+  <div>
+    <div>
+      {{actress.name}}
+    </div>
+    <div>
+      <button mat-raised-button color="primary" (click)="select()">
+        Select
+      </button>
+    </div>
+  </div>
+</div>

@@ -24,19 +24,19 @@
   </div>
   <div class="chips-wrapper">
     <mat-chip-list>
-      <mat-chip (removed)="changeCriteria(); criteria.resolutions.splice(index, 1)" *ngFor="let resolution of criteria.resolutions; let index = index">
+      <mat-chip (removed)="criteria.resolutions.splice(index, 1);changeCriteria()" *ngFor="let resolution of criteria.resolutions; let index = index">
         {{resolution}}
         <button matChipRemove>
           <mat-icon>cancel</mat-icon>
         </button>
       </mat-chip>
-      <mat-chip (removed)="changeCriteria(); criteria.categories.splice(index, 1)" *ngFor="let category of criteria.categories; let index = index">
+      <mat-chip (removed)="criteria.categories.splice(index, 1);changeCriteria()" *ngFor="let category of criteria.categories; let index = index">
         {{category.canonical_name}}
         <button matChipRemove>
           <mat-icon>cancel</mat-icon>
         </button>
       </mat-chip>
-      <mat-chip (removed)="changeCriteria(); criteria.actress=null" *ngIf="criteria.actress as actress">
+      <mat-chip (removed)="criteria.actress=null;changeCriteria()" *ngIf="criteria.actress as actress">
         {{actress.name}}
         <button matChipRemove>
           <mat-icon>cancel</mat-icon>

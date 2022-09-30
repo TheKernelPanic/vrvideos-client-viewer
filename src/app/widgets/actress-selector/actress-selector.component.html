@@ -1,26 +1,11 @@
 <div>
-  <input type="text" [(ngModel)]="searchText" (keyup)="search()" placeholder="Search actress..." />
+  <input type="text" [(ngModel)]="searchText" (keyup)="search()" placeholder="Search actress..." [disabled]="loader" />
 </div>
+<span *ngIf="collection.length as count">Found {{count}} results</span>
 <mat-dialog-content>
-  <div class="collection">
-    <span *ngIf="filtered.length as count">Found {{count}} results</span>
-    <div class="actress" *ngFor="let actress of filtered">
-      <div>
-        <img *ngIf="actress.images[0] as firstImage; else defaultImage" [src]="firstImage | imageUrlResolver" alt="Image actress"/>
-        <ng-template #defaultImage>
-          <img src="assets/image/default-actress.jpg" alt="Image actress"/>
-        </ng-template>
-      </div>
-      <div>
-        <div>
-          {{actress.name}}
-        </div>
-        <div>
-          <button mat-raised-button color="primary" (click)="select(actress)">
-            Select
-          </button>
-        </div>
-      </div>
+  <div class="collection" infiniteScroll (scrolled)="onScroll()" [scrollWindow]="false" [infiniteScrollDistance]="2" [alwaysCallback]="true" *ngIf="collection.length">
+    <div *ngFor="let actress of collection">
+      <app-widgets-actress-card [actress]="actress" (onSelectionEmitter)="onSelect(actress)"></app-widgets-actress-card>
     </div>
   </div>
 </mat-dialog-content>

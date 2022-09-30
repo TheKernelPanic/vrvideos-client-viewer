@@ -3,11 +3,17 @@
     <div>
       <div>
         <app-widgets-list-criteria-selector (onChangeCriteria)="onChangeCriteria($event)"></app-widgets-list-criteria-selector>
+        <span class="total-info" *ngIf="paginatorHelper.getTotal() as total">Found {{total}} results</span>
       </div>
       <div>
-        <ng-template ngFor let-vrVideo [ngForOf]="currentPage" [ngForTrackBy]="trackByVrVideo">
+        <ng-template ngFor let-vrVideo [ngForOf]="collection" [ngForTrackBy]="trackByVrVideo">
           <app-widgets-vr-video-card [vrVideo]="vrVideo"></app-widgets-vr-video-card>
         </ng-template>
+        <div class="next-page">
+          <button mat-raised-button color="primary" *ngIf="paginatorHelper.getPages()>currentPage" (click)="onScroll()">
+            Next page
+          </button>
+        </div>
       </div>
     </div>
   </app-widgets-wrapper-view>

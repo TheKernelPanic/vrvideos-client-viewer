@@ -1,0 +1,35 @@
+:host {
+  .actress-wrapper {
+    border: solid 1px #ebeaea;
+    margin: 2rem 0;
+    display: flex;
+    align-items: flex-start;
+    background-color: white;
+
+    >div {
+      flex: 0 0 50%;
+      max-width: 50%;
+      &:nth-child(1) {
+        img {
+          width: 100%;
+          object-fit: cover;
+          height: 192px;
+        }
+      }
+      &:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        >div {
+          padding: 2rem 15px;
+          &:nth-child(1) {
+            font-size: 1.2rem;
+            font-weight: bold;
+          }
+          &:nth-child(2) {
+            text-align: end;
+          }
+        }
+      }
+    }
+  }
+}

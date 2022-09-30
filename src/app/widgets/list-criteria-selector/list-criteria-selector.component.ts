@@ -60,7 +60,6 @@ export class ListCriteriaSelectorComponent {
   }
 
   public changeCriteria(): void {
-
     /**
      * TODO: Fix issue list select int -> string
      */

@@ -43,6 +43,7 @@ export class VrVideoCollectionHelper {
     const filtered = [];
     let match;
     for (const element of this.collection) {
+      match = true;
       for (const filter of this.filters) {
         match = filter.filter(element);
         if (!match) {

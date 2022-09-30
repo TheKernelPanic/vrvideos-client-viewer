@@ -34,7 +34,7 @@ export class VrVideoCardComponent implements OnInit {
 
   public view(): void {
 
-    const url = this.vrVideo.hosted_on.address + '/' + this.vrVideo.uuid + '/video.mp4';
+    const url = 'http://' + this.vrVideo.hosted_on.address + '/' + this.vrVideo.uuid + '/video.mp4';
     window.open(url, "_blank");
   }
 

@@ -23,6 +23,8 @@ import {AutocompleteVrVideoInputComponent} from "./autocomplete-vr-video-input/a
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {ImageUrlResolverPipe} from "../pipes/image-url-resolver.pipe";
 import { SpinnerComponent } from './spinner/spinner.component';
+import {InfiniteScrollModule} from "ngx-infinite-scroll";
+import { ActressCardComponent } from './actress-card/actress-card.component';
 
 
 @NgModule({
@@ -38,7 +40,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     TimeDurationPipe,
     AutocompleteVrVideoInputComponent,
     ImageUrlResolverPipe,
-    SpinnerComponent
+    SpinnerComponent,
+    ActressCardComponent
   ],
   exports: [
     HeaderComponent,
@@ -59,7 +62,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     MatChipsModule,
     MatIconModule,
     BarRatingModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    InfiniteScrollModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
