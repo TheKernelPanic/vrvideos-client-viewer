@@ -65,25 +65,25 @@ export class VrVideoCollectionHelper {
       case SortByValues.DATE_CREATION_ASC:
         return filteredCollection;// TODO
       case SortByValues.VIEWS_DESC:
-        return filteredCollection.sort((a: VrVideo, b: VrVideo) => a.viewed_times > b.viewed_times ? 1 : -1);
-      case SortByValues.VIEWS_ASC:
         return filteredCollection.sort((a: VrVideo, b: VrVideo) => a.viewed_times < b.viewed_times ? 1 : -1);
+      case SortByValues.VIEWS_ASC:
+        return filteredCollection.sort((a: VrVideo, b: VrVideo) => a.viewed_times > b.viewed_times ? 1 : -1);
       case SortByValues.WIDTH_RESOLUTION_ASC:
-        return filteredCollection.sort((a: VrVideo, b: VrVideo) => a.width > b.width ? 1 : -1);
-      case SortByValues.WIDTH_RESOLUTION_DESC:
         return filteredCollection.sort((a: VrVideo, b: VrVideo) => a.width < b.width ? 1 : -1);
+      case SortByValues.WIDTH_RESOLUTION_DESC:
+        return filteredCollection.sort((a: VrVideo, b: VrVideo) => a.width > b.width ? 1 : -1);
       case SortByValues.RATING_ASC:
-        return filteredCollection.sort((a: VrVideo, b: VrVideo) => a.rating > b.rating ? 1 : -1);
-      case SortByValues.RATING_DESC:
         return filteredCollection.sort((a: VrVideo, b: VrVideo) => a.rating < b.rating ? 1 : -1);
+      case SortByValues.RATING_DESC:
+        return filteredCollection.sort((a: VrVideo, b: VrVideo) => a.rating > b.rating ? 1 : -1);
       case SortByValues.DURATION_ASC:
-        return filteredCollection.sort((a: VrVideo, b: VrVideo) => a.duration_seconds > b.duration_seconds ? 1 : -1);
-      case SortByValues.DURATION_DESC:
         return filteredCollection.sort((a: VrVideo, b: VrVideo) => a.duration_seconds < b.duration_seconds ? 1 : -1);
+      case SortByValues.DURATION_DESC:
+        return filteredCollection.sort((a: VrVideo, b: VrVideo) => a.duration_seconds > b.duration_seconds ? 1 : -1);
       case SortByValues.FILESIZE_ASC:
-        return filteredCollection.sort((a: VrVideo, b: VrVideo) => a.filesize > b.filesize ? 1 : -1);
-      case SortByValues.FILESIZE_DESC:
         return filteredCollection.sort((a: VrVideo, b: VrVideo) => a.filesize < b.filesize ? 1 : -1);
+      case SortByValues.FILESIZE_DESC:
+        return filteredCollection.sort((a: VrVideo, b: VrVideo) => a.filesize > b.filesize ? 1 : -1);
       default:
         throw new Error('Unsupported sort option');
     }
