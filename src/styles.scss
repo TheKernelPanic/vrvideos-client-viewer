@@ -1,7 +1,9 @@
+$primary-color: #c2185b;
+$secondary-color: #fbe3ec;
+
 html, body {
   height: 100%;
-  background-color: #fbe3ec;
-
+  background-color: $secondary-color;
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
@@ -16,8 +18,8 @@ body {
 input[type=text], select {
   width: 100%;
   padding: 5px 4px;
-  color: #c2185b;
-  border: solid 1px #c2185b;
+  color: $primary-color;
+  border: solid 1px $primary-color;
   border-radius: 5px;
   &:focus {
     outline: none;
@@ -25,13 +27,13 @@ input[type=text], select {
 }
 .mat-dialog-container {
   background: white;
-  color: #c2185b;
+  color: $primary-color;
 }
 .mat-autocomplete-panel {
   background: white;
 }
 .mat-option-text {
-  color: #c2185b;
+  color: $primary-color;
   text-transform: capitalize;
 }
 

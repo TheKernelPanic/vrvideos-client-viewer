@@ -1,0 +1,13 @@
+@import '../../../styles';
+
+.spinner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 4rem 0;
+  background-color: white;
+
+  .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: $primary-color;
+  }
+}

@@ -22,6 +22,7 @@ import {BarRatingModule} from "ngx-bar-rating";
 import {AutocompleteVrVideoInputComponent} from "./autocomplete-vr-video-input/autocomplete-vr-video-input.component";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {ImageUrlResolverPipe} from "../pipes/image-url-resolver.pipe";
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {ImageUrlResolverPipe} from "../pipes/image-url-resolver.pipe";
     FileSizePipe,
     TimeDurationPipe,
     AutocompleteVrVideoInputComponent,
-    ImageUrlResolverPipe
+    ImageUrlResolverPipe,
+    SpinnerComponent
   ],
   exports: [
     HeaderComponent,

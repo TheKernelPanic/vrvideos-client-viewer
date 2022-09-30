@@ -1,3 +1,5 @@
+@import '../../../styles';
+
 :host {
   >div {
     .vr-video-card {
@@ -20,12 +22,12 @@
           position: absolute;
           bottom: 5px;
           right: 5px;
-          background-color: #fbe3ec;
-          color: #c2185b;
+          background-color: $secondary-color;
+          color: $primary-color;
           font-weight: bold;
           font-size: 1.3rem;
           padding: 2px 3px;
-          outline: solid 2px #c2185b;
+          outline: solid 2px $primary-color;
         }
       }
       .content {
@@ -42,11 +44,11 @@
         .description {
           font-weight: bold;
           font-size: 1.3rem;
-          color: #c2185b;
+          color: $primary-color;
         }
         .actresses-list, .categories-list {
           cursor: pointer;
-          color: #c2185b;
+          color: $primary-color;
         }
         .actresses-list {
           display: block;
@@ -69,7 +71,7 @@
                 color: darkgrey;
               }
               &.has-fav {
-                color: #c2185b !important;
+                color: $primary-color !important;
               }
             }
           }
@@ -81,7 +83,7 @@
             >span {
               font-size: 0.6rem;
               font-weight: bold;
-              color: #c2185b;
+              color: $primary-color;
             }
             button {
               margin: 0 1rem;
