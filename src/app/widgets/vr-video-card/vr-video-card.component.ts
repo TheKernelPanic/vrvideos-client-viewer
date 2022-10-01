@@ -9,6 +9,7 @@ import {ActressSelectorComponent} from "../actress-selector/actress-selector.com
 import {AddActressHttpService} from "../../http/vr-video/add-actress-http.service";
 import {ToggleFavouriteHttpService} from "../../http/vr-video/toggle-favourite-http.service";
 import {SetRatingHttpService} from "../../http/vr-video/set-rating-http.service";
+import {ViewHttpService} from "../../http/vr-video/view-http.service";
 
 @Component({
   selector: 'app-widgets-vr-video-card',
@@ -25,7 +26,8 @@ export class VrVideoCardComponent implements OnInit {
     private addActressHttpService: AddActressHttpService,
     private router: Router,
     private toggleFavouriteHttpService: ToggleFavouriteHttpService,
-    private setRatingHttpService: SetRatingHttpService
+    private setRatingHttpService: SetRatingHttpService,
+    private viewHttpService: ViewHttpService
   ) { }
 
   public ngOnInit(): void {
@@ -36,6 +38,15 @@ export class VrVideoCardComponent implements OnInit {
 
     const url = 'http://' + this.vrVideo.hosted_on.address + '/' + this.vrVideo.uuid + '/video.mp4';
     window.open(url, "_blank");
+
+    this.viewHttpService.request(this.vrVideo).subscribe({
+      next: () => {
+        this.vrVideo.viewed_times++;
+      },
+      error: (error: HttpErrorResponse) => {
+        this.router.navigate(['/error'], {queryParams: {code: error.status}}).then(null);
+      }
+    });
   }
 
   public openActressesSelector(): void {
