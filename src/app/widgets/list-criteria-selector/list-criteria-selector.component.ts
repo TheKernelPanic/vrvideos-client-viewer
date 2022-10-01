@@ -52,10 +52,18 @@ export class ListCriteriaSelectorComponent {
 
     this.setUpCriteria();
     this.sortOptions = [
-      {value: SortByValues.DATE_CREATION_DESC, rawText: 'Creation date desc'},
-      {value: SortByValues.DATE_CREATION_ASC, rawText: 'Creation date asc'},
-      {value: SortByValues.VIEWS_DESC, rawText: 'Views desc'},
-      {value: SortByValues.VIEWS_ASC, rawText: 'Views asc'}
+      {value: SortByValues.DATE_CREATION_DESC, rawText: 'Fecha de creación descendente'},
+      {value: SortByValues.DATE_CREATION_ASC, rawText: 'Fecha de creación ascendente'},
+      {value: SortByValues.VIEWS_DESC, rawText: 'Número de visitas descendente'},
+      {value: SortByValues.VIEWS_ASC, rawText: 'Número de visitas ascendente'},
+      {value: SortByValues.WIDTH_RESOLUTION_DESC ,rawText: 'Resolución descendente'},
+      {value: SortByValues.WIDTH_RESOLUTION_ASC ,rawText: 'Resolución ascendente'},
+      {value: SortByValues.RATING_ASC ,rawText: 'Valoración ascendente'},
+      {value: SortByValues.RATING_DESC ,rawText: 'Valoración descendente'},
+      {value: SortByValues.DURATION_DESC ,rawText: 'Duración descendente'},
+      {value: SortByValues.DURATION_ASC ,rawText: 'Duración ascendente'},
+      {value: SortByValues.FILESIZE_DESC ,rawText: 'Tamaño del archivo descendente'},
+      {value: SortByValues.FILESIZE_ASC ,rawText: 'Tamaño del archivo ascendente'}
     ];
     this.onChangeCriteria = new EventEmitter<Criteria>();
   }
