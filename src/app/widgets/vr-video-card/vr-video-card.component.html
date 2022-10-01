@@ -41,6 +41,10 @@
       </div>
       <div class="actresses-list" (click)="openActressesSelector()">
         <div *ngFor="let actress of vrVideo.actresses">
+          <img *ngIf="actress.images.length; else defaultImage" [src]="actress.images[0] | imageUrlResolver"/>
+          <ng-template #defaultImage>
+            <img src="assets/image/default-actress.jpg">
+          </ng-template>
           {{actress.name}}
         </div>
         <mat-icon *ngIf="vrVideo.actresses.length==0">add_circle</mat-icon>

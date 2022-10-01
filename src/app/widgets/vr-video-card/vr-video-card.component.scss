@@ -63,6 +63,15 @@
         .actresses-list {
           display: block;
           >div {
+            display: flex;
+            align-items: center;
+            img {
+              height: 37px;
+              width: 37px;
+              object-fit: cover;
+              border-radius: 50% 50%;
+              margin: 5px 8px 0 0;
+            }
             font-weight: bold;
             font-size: 1rem;
           }
