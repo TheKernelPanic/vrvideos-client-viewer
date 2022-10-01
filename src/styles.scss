@@ -3,6 +3,7 @@ $secondary-color: #fbe3ec;
 
 html, body {
   height: 100%;
+  font-family: 'Roboto';
   background-color: $secondary-color;
   -moz-user-select: none;
   -khtml-user-select: none;
@@ -16,8 +17,10 @@ body {
 }
 
 input[type=text], select {
+  box-sizing: border-box;
   width: 100%;
-  padding: 5px 4px;
+  padding: 15px 12px;
+  font-size: 1.1rem;
   color: $primary-color;
   border: solid 1px $primary-color;
   border-radius: 5px;
@@ -71,4 +74,17 @@ input[type=text], select {
 }
 @mixin for-big-desktop-up {
   @media (min-width: 1800px) { @content; }
+}
+
+::-webkit-scrollbar {
+  width: 13px;
+}
+::-webkit-scrollbar-track {
+  background: $secondary-color;
+}
+::-webkit-scrollbar-thumb {
+  background: $primary-color;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: $primary-color;
 }

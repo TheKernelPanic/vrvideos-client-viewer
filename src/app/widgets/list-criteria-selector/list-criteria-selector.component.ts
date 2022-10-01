@@ -52,18 +52,18 @@ export class ListCriteriaSelectorComponent {
 
     this.setUpCriteria();
     this.sortOptions = [
-      {value: SortByValues.DATE_CREATION_DESC, rawText: 'Fecha de creación descendente'},
-      {value: SortByValues.DATE_CREATION_ASC, rawText: 'Fecha de creación ascendente'},
-      {value: SortByValues.VIEWS_DESC, rawText: 'Número de visitas descendente'},
-      {value: SortByValues.VIEWS_ASC, rawText: 'Número de visitas ascendente'},
-      {value: SortByValues.WIDTH_RESOLUTION_DESC ,rawText: 'Resolución descendente'},
-      {value: SortByValues.WIDTH_RESOLUTION_ASC ,rawText: 'Resolución ascendente'},
-      {value: SortByValues.RATING_ASC ,rawText: 'Valoración ascendente'},
-      {value: SortByValues.RATING_DESC ,rawText: 'Valoración descendente'},
-      {value: SortByValues.DURATION_DESC ,rawText: 'Duración descendente'},
-      {value: SortByValues.DURATION_ASC ,rawText: 'Duración ascendente'},
-      {value: SortByValues.FILESIZE_DESC ,rawText: 'Tamaño del archivo descendente'},
-      {value: SortByValues.FILESIZE_ASC ,rawText: 'Tamaño del archivo ascendente'}
+      {value: SortByValues.DATE_CREATION_DESC, rawText: 'Descending creation date'},
+      {value: SortByValues.DATE_CREATION_ASC, rawText: 'Ascending creation date'},
+      {value: SortByValues.VIEWS_DESC, rawText: 'Descending number of visits'},
+      {value: SortByValues.VIEWS_ASC, rawText: 'Ascending number of visits'},
+      {value: SortByValues.WIDTH_RESOLUTION_DESC ,rawText: 'Descending resolution'},
+      {value: SortByValues.WIDTH_RESOLUTION_ASC ,rawText: 'Ascending resolution'},
+      {value: SortByValues.RATING_ASC ,rawText: 'Ascending valuation'},
+      {value: SortByValues.RATING_DESC ,rawText: 'Descending valuation'},
+      {value: SortByValues.DURATION_DESC ,rawText: 'Descending duration'},
+      {value: SortByValues.DURATION_ASC ,rawText: 'Ascending duration'},
+      {value: SortByValues.FILESIZE_DESC ,rawText: 'Descending file size'},
+      {value: SortByValues.FILESIZE_ASC ,rawText: 'Ascending file size'}
     ];
     this.onChangeCriteria = new EventEmitter<Criteria>();
   }
