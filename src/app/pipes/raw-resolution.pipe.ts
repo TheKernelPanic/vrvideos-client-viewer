@@ -23,7 +23,7 @@ export class RawResolutionPipe implements PipeTransform {
       case 2048<=width:
         return Resolutions.RESOLUTION_2K;
       default:
-        throw new Error('Unsupported resolution');
+        return Resolutions.RESOLUTION_HD;
     }
   }
 }

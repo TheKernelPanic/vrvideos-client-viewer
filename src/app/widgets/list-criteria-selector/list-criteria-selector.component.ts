@@ -8,7 +8,8 @@ export enum Resolutions {
   RESOLUTION_5K= '5K',
   RESOLUTION_4K= '4K',
   RESOLUTION_3K= '3K',
-  RESOLUTION_2K= '2K'
+  RESOLUTION_2K= '2K',
+  RESOLUTION_HD = 'HD'
 }
 export enum SortByValues {
   DATE_CREATION_DESC = 1,
