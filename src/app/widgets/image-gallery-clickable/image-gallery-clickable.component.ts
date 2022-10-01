@@ -19,7 +19,6 @@ export class ImageGalleryClickableComponent implements OnInit {
 
   public next(): void {
 
-    console.log(this.currentIndex, this.images);
     if (this.currentIndex < (this.images.length-1)) {
       this.currentIndex++;
     } else {
