@@ -48,6 +48,7 @@ export class ResolutionFilter extends BaseFilter implements Filter {
   public filter(vrVideo: VrVideo): boolean {
 
     let match = false;
+
     for (const resolution of this.criteria.resolutions) {
       switch (resolution) {
         case Resolutions.RESOLUTION_8K:
@@ -72,10 +73,10 @@ export class ResolutionFilter extends BaseFilter implements Filter {
           match = (2048<=vrVideo.width && vrVideo.width<2880);
           break;
       }
-      if (!match) {
-        return false;
+      if (match) {
+        return true;
       }
     }
-    return true;
+    return false;
   }
 }
