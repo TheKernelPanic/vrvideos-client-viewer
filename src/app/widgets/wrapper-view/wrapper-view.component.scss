@@ -12,6 +12,14 @@
       flex: 0 0 75%;
       max-width: 75%;
 
+      @include for-phone-only {
+        flex: 0 0 95%;
+        max-width: 95%;
+      }
+      @include for-tablet-portrait-up {
+        flex: 0 0 90%;
+        max-width: 90%;
+      }
       @include for-desktop-up {
         flex: 0 0 40%;
         max-width: 40%;
