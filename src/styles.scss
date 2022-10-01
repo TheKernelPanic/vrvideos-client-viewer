@@ -24,10 +24,19 @@ input[type=text], select {
   &:focus {
     outline: none;
   }
+  &::placeholder {
+    color: $primary-color;
+  }
 }
 .mat-dialog-container {
   background: white;
   color: $primary-color;
+  .mat-dialog-actions {
+    justify-content: center;
+    button {
+      width: 50%;
+    }
+  }
 }
 .mat-autocomplete-panel {
   background: white;
@@ -35,6 +44,16 @@ input[type=text], select {
 .mat-option-text {
   color: $primary-color;
   text-transform: capitalize;
+}
+.mat-menu-panel {
+  background: white;
+  .mat-menu-item {
+    color: $primary-color;
+    font-weight: bold;
+  }
+}
+.mat-chip.mat-standard-chip {
+  background-color: #c2185b;
 }
 
 @mixin for-phone-only {

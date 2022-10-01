@@ -25,6 +25,7 @@ import {ImageUrlResolverPipe} from "../pipes/image-url-resolver.pipe";
 import { SpinnerComponent } from './spinner/spinner.component';
 import {InfiniteScrollModule} from "ngx-infinite-scroll";
 import { ActressCardComponent } from './actress-card/actress-card.component';
+import {MatMenuModule} from "@angular/material/menu";
 
 
 @NgModule({
@@ -49,22 +50,23 @@ import { ActressCardComponent } from './actress-card/actress-card.component';
     WrapperViewComponent,
     ListCriteriaSelectorComponent
   ],
-  imports: [
-    CommonModule,
-    MatProgressSpinnerModule,
-    MatDialogModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    FormsModule,
-    MatToolbarModule,
-    MatChipsModule,
-    MatIconModule,
-    BarRatingModule,
-    MatAutocompleteModule,
-    InfiniteScrollModule
-  ],
+    imports: [
+        CommonModule,
+        MatProgressSpinnerModule,
+        MatDialogModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        FormsModule,
+        MatToolbarModule,
+        MatChipsModule,
+        MatIconModule,
+        BarRatingModule,
+        MatAutocompleteModule,
+        InfiniteScrollModule,
+        MatMenuModule
+    ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class WidgetsModule {

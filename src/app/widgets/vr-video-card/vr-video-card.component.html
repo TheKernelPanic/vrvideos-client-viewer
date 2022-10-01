@@ -10,10 +10,25 @@
       </span>
     </div>
     <div class="content">
-      <div class="fav">
-        <button mat-icon-button (click)="setAsFavourite()">
+      <div class="top-actions">
+        <button mat-icon-button aria-label="Marks as favourite" (click)="setAsFavourite()">
           <mat-icon [ngClass]="{'has-fav': vrVideo.favourite}">favorite</mat-icon>
         </button>
+        <button mat-icon-button aria-label="More actions" [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="reportVideo()">
+            <span *ngIf="!vrVideo.reported; else undoReportLabel">
+              Report
+            </span>
+            <ng-template #undoReportLabel>
+              <span>
+                Undo report
+              </span>
+            </ng-template>
+          </button>
+        </mat-menu>
       </div>
       <div class="description">
         {{vrVideo.description}}
@@ -49,12 +64,12 @@
         </div>
         <div>
           <span>
-            {{vrVideo.created_at | date : 'M/d/yy, h:mm a'}}
+            {{vrVideo.created_at | date : 'd/M/yy, h:mm a'}}
           </span>
         </div>
         <div>
           <button mat-raised-button color="primary" (click)="view()">
-            <mat-icon>play_circle</mat-icon> View
+            <mat-icon>play_circle</mat-icon> view
           </button>
         </div>
       </div>

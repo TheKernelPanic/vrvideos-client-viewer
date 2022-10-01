@@ -76,12 +76,6 @@ export class ListCriteriaSelectorComponent {
     this.onChangeCriteria.emit(this.criteria);
   }
 
-  public clear(): void {
-
-    this.setUpCriteria();
-    this.changeCriteria();
-  }
-
   private setUpCriteria(): void {
 
     this.criteria = {

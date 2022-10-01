@@ -2,14 +2,12 @@
   <div>
     <form [formGroup]="formGroup">
       <div>
-        <label></label>
-        <input type="text" formControlName="text" />
+        <input type="text" formControlName="text" placeholder="Category name..."/>
       </div>
     </form>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-raised-button mat-dialog-close color="primary">Cancel</button>
   <button mat-raised-button mat-dialog-close color="primary" (click)="addCategory()">Save</button>
 </mat-dialog-actions>
 

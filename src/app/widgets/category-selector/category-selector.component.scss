@@ -1,7 +1,7 @@
 :host {
-  .mat-dialog-container {
-    background-color: white !important;
-
-
+  form {
+    >div {
+      padding: 0 1rem;
+    }
   }
 }

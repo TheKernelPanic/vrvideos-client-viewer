@@ -7,19 +7,12 @@
         (onSelectResolution)="onSelectResolution($event)"
       ></app-widgets-autocomplete-vr-video-input>
     </div>
-    <div class="select-list">
-      <label>Sort by</label>
+    <div>
       <select [(ngModel)]="criteria.sort" name="sort" (change)="changeCriteria()">
         <option *ngFor="let option of sortOptions" [value]="option.value">
           {{option.rawText}}
         </option>
       </select>
-    </div>
-    <div>
-      <button mat-raised-button color="primary" (click)="clear()">
-        <mat-icon>cached</mat-icon>
-        Refresh
-      </button>
     </div>
   </div>
   <div class="chips-wrapper">

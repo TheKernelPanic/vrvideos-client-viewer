@@ -1,11 +1,18 @@
-<div>
-  <input type="text" [(ngModel)]="searchText" (keyup)="search()" placeholder="Search actress..." [disabled]="loader" />
+<div *ngIf="loader; else content">
+  <app-widgets-spinner></app-widgets-spinner>
 </div>
-<span *ngIf="collection.length as count">Found {{count}} results</span>
-<mat-dialog-content>
-  <div class="collection" infiniteScroll (scrolled)="onScroll()" [scrollWindow]="false" [infiniteScrollDistance]="2" [alwaysCallback]="true" *ngIf="collection.length">
-    <div *ngFor="let actress of collection">
-      <app-widgets-actress-card [actress]="actress" (onSelectionEmitter)="onSelect(actress)"></app-widgets-actress-card>
-    </div>
+<ng-template #content>
+  <div>
+    <input type="text" [(ngModel)]="searchText" (keyup)="search()" placeholder="Search actress..." />
   </div>
-</mat-dialog-content>
+  <span *ngIf="collection.length as count">Found {{count}} results</span>
+  <mat-dialog-content>
+    <div class="collection" infiniteScroll (scrolled)="onScroll()" [scrollWindow]="false" [infiniteScrollDistance]="2" [alwaysCallback]="true" *ngIf="collection.length">
+      <div *ngFor="let actress of collection">
+        <app-widgets-actress-card [actress]="actress" (onSelectionEmitter)="onSelect(actress)"></app-widgets-actress-card>
+      </div>
+    </div>
+  </mat-dialog-content>
+</ng-template>
+
+

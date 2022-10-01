@@ -70,12 +70,11 @@
         .categories-list {
           font-size: 0.7rem;
         }
-        .fav {
+        .top-actions {
           width: 100%;
           display: flex;
           justify-content: flex-end;
           button {
-            margin: 0 1rem;
             .mat-icon {
               &:not(.has-fav) {
                 color: darkgrey;
