@@ -6,8 +6,10 @@ import {Observable} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class ToggleFavouriteHttpService extends BaseHttpService {
+export class ViewHttpService extends BaseHttpService {
+
   public request(vrVideo: VrVideo): Observable<void> {
-    return this.httpClient.put<void>(this.host + '/vr-video/favourite/' + vrVideo.uuid, {});
+
+    return this.httpClient.put<void>(this.host + '/view/' + vrVideo.uuid, {});
   }
 }
