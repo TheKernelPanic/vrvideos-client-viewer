@@ -5,10 +5,10 @@
 export const environment = {
   production: false,
   applicationServer: {
-    host: 'http://localhost:8081'
+    host: 'http://192.168.1.131:8001'
   },
   cdnImages: {
-    host: 'http://localhost:8001'
+    host: 'http://192.168.1.131:8002'
   }
 };
 
