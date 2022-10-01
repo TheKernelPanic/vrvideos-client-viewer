@@ -40,6 +40,7 @@ export interface VrVideo {
   viewed_times: number;
   favourite: boolean;
   description: string|null;
+  reported: boolean;
   filesize: number;
   width: number;
   height: number;
