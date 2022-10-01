@@ -49,7 +49,7 @@ export class VrVideoCardComponent {
 
   public openActressesSelector(): void {
 
-    this.dialog.open(ActressSelectorComponent, {width: '425px'}).afterClosed().subscribe({
+    this.dialog.open(ActressSelectorComponent, {width: '625px'}).afterClosed().subscribe({
       next: (actress: Actress) => {
         this.addActress(actress);
       }

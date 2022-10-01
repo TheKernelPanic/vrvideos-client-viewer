@@ -26,6 +26,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import {InfiniteScrollModule} from "ngx-infinite-scroll";
 import { ActressCardComponent } from './actress-card/actress-card.component';
 import {MatMenuModule} from "@angular/material/menu";
+import { ImageGalleryClickableComponent } from './image-gallery-clickable/image-gallery-clickable.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import {MatMenuModule} from "@angular/material/menu";
     AutocompleteVrVideoInputComponent,
     ImageUrlResolverPipe,
     SpinnerComponent,
-    ActressCardComponent
+    ActressCardComponent,
+    ImageGalleryClickableComponent
   ],
   exports: [
     HeaderComponent,

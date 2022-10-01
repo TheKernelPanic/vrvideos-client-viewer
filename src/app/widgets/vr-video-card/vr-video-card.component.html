@@ -1,7 +1,7 @@
 <div>
   <div class="vr-video-card" *ngIf="vrVideo">
     <div class="thumbnail">
-      <img *ngIf="vrVideo.images[0] as firstImage; else defaultImage" [src]="firstImage | imageUrlResolver" alt="VR Video image"/>
+      <app-widgets-image-gallery-clickable *ngIf="vrVideo.images.length; else defaultImage" [images]="vrVideo.images"></app-widgets-image-gallery-clickable>
       <ng-template #defaultImage>
         <img src="assets/image/default-vr-video.jpg" alt="VR Video image"/>
       </ng-template>

@@ -1,6 +1,6 @@
 <div class="actress-wrapper">
   <div>
-    <img *ngIf="actress.images[0] as firstImage; else defaultImage" [src]="firstImage | imageUrlResolver" alt="Image actress"/>
+    <app-widgets-image-gallery-clickable *ngIf="actress.images.length; else defaultImage" [images]="actress.images"></app-widgets-image-gallery-clickable>
     <ng-template #defaultImage>
       <img src="assets/image/default-actress.jpg" alt="Image actress"/>
     </ng-template>
