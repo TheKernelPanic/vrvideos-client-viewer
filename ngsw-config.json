@@ -12,6 +12,10 @@
           "/manifest.webmanifest",
           "/*.css",
           "/*.js"
+        ],
+        "urls": [
+          "http://192.168.1.131:8002/**",
+          "https://fonts.googleapis.com/**"
         ]
       }
     },
@@ -24,6 +28,19 @@
           "/assets/**",
           "/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
         ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "vr-video-provider",
+      "urls": [
+        "http://192.168.1.131:8001/**"
+      ],
+      "cacheConfig": {
+        "maxSize": 0,
+        "maxAge": "0u",
+        "strategy": "performance"
       }
     }
   ]
