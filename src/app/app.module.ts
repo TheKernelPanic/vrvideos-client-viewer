@@ -9,6 +9,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {WidgetsModule} from "./widgets/widgets.module";
 import {VrVideosModule} from "./vr-videos/vr-videos.module";
 import { ErrorComponent } from './error/error.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,13 @@ import { ErrorComponent } from './error/error.component';
     MatToolbarModule,
     HttpClientModule,
     WidgetsModule,
-    VrVideosModule
+    VrVideosModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
     providers: [
       {provide: 'APPLICATION_SERVER_HOST', useValue: environment.applicationServer.host},
