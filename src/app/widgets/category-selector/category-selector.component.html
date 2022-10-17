@@ -2,7 +2,12 @@
   <div>
     <form [formGroup]="formGroup">
       <div>
-        <input type="text" formControlName="text" placeholder="Category name..."/>
+        <input type="text" formControlName="text" placeholder="Category name..." [matAutocomplete]="auto"/>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="select($event)">
+          <mat-option *ngFor="let category of categories" [value]="category">
+            {{category.canonical_name}}
+          </mat-option>
+        </mat-autocomplete>
       </div>
     </form>
   </div>
