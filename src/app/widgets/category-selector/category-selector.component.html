@@ -4,7 +4,7 @@
       <div>
         <input type="text" formControlName="text" placeholder="Category name..." [matAutocomplete]="auto"/>
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="select($event)">
-          <mat-option *ngFor="let category of categories" [value]="category">
+          <mat-option *ngFor="let category of filteredOptions | async" [value]="category">
             {{category.canonical_name}}
           </mat-option>
         </mat-autocomplete>

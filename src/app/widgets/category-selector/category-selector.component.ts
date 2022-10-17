@@ -7,6 +7,9 @@ import {HttpErrorResponse} from "@angular/common/http";
 import {MatDialogRef} from "@angular/material/dialog";
 import {ListingHttpService} from "../../http/category/listing-http.service";
 import {MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
+import {map, startWith} from "rxjs/operators";
+import {SlugGeneratorHelper} from "../../utils/slug-generator-helper";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-widgets-category-selector',
@@ -18,6 +21,7 @@ export class CategorySelectorComponent implements OnInit {
   public loader: boolean;
   public categories: Category[];
   public formGroup: FormGroup;
+  public filteredOptions!: Observable<Category[]>;
 
   constructor(
     private createHttpService: CreateHttpService,
@@ -39,6 +43,26 @@ export class CategorySelectorComponent implements OnInit {
       next: (categories: Category[]) => {
         this.categories = categories;
         this.loader = false;
+
+        this.filteredOptions = (this.formGroup.get('text') as FormControl).valueChanges.pipe(
+          startWith(''),
+          map((value: string|unknown) => {
+            if (typeof value !== 'string') {
+              return [];
+            }
+            const slug = SlugGeneratorHelper.generate(value);
+            const matches = [];
+            for (const element of this.categories) {
+              if (!element.slug) {
+                continue;
+              }
+              if (element.slug.includes(slug)) {
+                matches.push(element);
+              }
+            }
+            return matches;
+          })
+        );
       },
       error: (error: HttpErrorResponse) => {
         this.router.navigate(['/error'], {queryParams: {code: error.status}}).then(null);
