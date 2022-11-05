@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "compodoc:build": "compodoc -p tsconfig.doc.json",
+    "compodoc:build-and-serve": "compodoc -p tsconfig.doc.json -s",
+    "compodoc:serve": "compodoc -s"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +24,8 @@
     "@angular/platform-browser-dynamic": "^14.2.3",
     "@angular/router": "^14.2.3",
     "@angular/service-worker": "^14.2.3",
+    "@compodoc/compodoc": "^1.1.19",
+    "compodoc": "0.0.41",
     "dayjs": "^1.11.5",
     "ngx-bar-rating": "^4.0.1",
     "ngx-infinite-scroll": "^14.0.0",
