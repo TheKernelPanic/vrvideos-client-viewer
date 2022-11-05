@@ -27,6 +27,7 @@ import {InfiniteScrollModule} from "ngx-infinite-scroll";
 import { ActressCardComponent } from './actress-card/actress-card.component';
 import {MatMenuModule} from "@angular/material/menu";
 import { ImageGalleryClickableComponent } from './image-gallery-clickable/image-gallery-clickable.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 
 @NgModule({
@@ -44,14 +45,16 @@ import { ImageGalleryClickableComponent } from './image-gallery-clickable/image-
     ImageUrlResolverPipe,
     SpinnerComponent,
     ActressCardComponent,
-    ImageGalleryClickableComponent
+    ImageGalleryClickableComponent,
+    PaginationComponent
   ],
-  exports: [
-    HeaderComponent,
-    VrVideoCardComponent,
-    WrapperViewComponent,
-    ListCriteriaSelectorComponent
-  ],
+    exports: [
+        HeaderComponent,
+        VrVideoCardComponent,
+        WrapperViewComponent,
+        ListCriteriaSelectorComponent,
+        PaginationComponent
+    ],
     imports: [
         CommonModule,
         MatProgressSpinnerModule,

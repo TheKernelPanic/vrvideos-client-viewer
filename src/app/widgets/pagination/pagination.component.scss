@@ -1,0 +1,22 @@
+@import '../../../styles.scss';
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  button {
+    &.mat-raised-button {
+      line-height: 28px;
+      font-size: 12px;
+      margin: 4px;
+      min-width: 48px;
+      padding: 0;
+    }
+    &.selected {
+      background-color: $secondary-color;
+      color: $primary-color;
+    }
+  }
+}
+
+

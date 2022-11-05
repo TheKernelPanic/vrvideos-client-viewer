@@ -1,0 +1,5 @@
+<div class="pagination-wrapper">
+  <button mat-raised-button color="primary" [class]="{'selected': currentPage===page}" *ngFor="let page of summaryPages" (click)="pageSelection.emit(page)">
+    {{page}}
+  </button>
+</div>

@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   public paginatorHelper: PaginatorHelper<VrVideo>;
   public collection: VrVideo[];
   public currentPage: number;
+  public summaryPages: number[];
 
   public constructor(
     private httpService: ListingHttpService,
@@ -28,13 +29,13 @@ export class HomeComponent implements OnInit {
     this.paginatorHelper = new PaginatorHelper<VrVideo>();
     this.collection = [];
     this.currentPage = 1;
+    this.summaryPages = [];
   }
 
   public ngOnInit(): void {
     this.loader = true;
     this.httpService.request().subscribe({
       next: (vrVideos: VrVideo[]) => {
-
         this.collectionHelper = new VrVideoCollectionHelper(vrVideos);
         this.onChangeCriteria(null);
         this.loader = false;
@@ -46,24 +47,21 @@ export class HomeComponent implements OnInit {
   }
 
   public onChangeCriteria(criteria: Criteria|null): void {
-
     this.currentPage = 1;
     this.paginatorHelper.setCollection(
       this.collectionHelper.getCollection(criteria)
     );
     this.collection = this.paginatorHelper.getFrom(this.currentPage);
+    this.summaryPages = this.paginatorHelper.getSummary(this.currentPage);
   }
 
   public trackByVrVideo(index: number, vrVideo: VrVideo): string {
-
     return vrVideo.uuid;
   }
 
-  public onScroll(): void {
-    if (this.paginatorHelper.getPages() < this.currentPage) {
-      return;
-    }
-    this.currentPage++;
-    this.collection.push(...this.paginatorHelper.getFrom(this.currentPage));
+  public selectPage(page: number): void {
+    this.currentPage = page;
+    this.collection = this.paginatorHelper.getFrom(this.currentPage);
+    this.summaryPages = this.paginatorHelper.getSummary(this.currentPage);
   }
 }
