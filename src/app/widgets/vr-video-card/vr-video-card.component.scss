@@ -2,6 +2,9 @@
 
 :host {
   >div {
+    .vr-video-reported {
+      opacity: 0.4;
+    }
     .vr-video-card {
       background-color: white;
       display: flex;

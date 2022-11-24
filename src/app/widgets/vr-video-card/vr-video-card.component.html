@@ -1,5 +1,5 @@
 <div>
-  <div class="vr-video-card" *ngIf="vrVideo">
+  <div class="vr-video-card" [ngClass]="{'vr-video-reported': vrVideo.reported}" *ngIf="vrVideo">
     <div class="thumbnail">
       <app-widgets-image-gallery-clickable *ngIf="vrVideo.images.length; else defaultImage" [images]="vrVideo.images"></app-widgets-image-gallery-clickable>
       <ng-template #defaultImage>
@@ -11,7 +11,7 @@
     </div>
     <div class="content">
       <div class="top-actions">
-        <button mat-icon-button aria-label="Marks as favourite" (click)="setAsFavourite()">
+        <button mat-icon-button aria-label="Marks as favourite" (click)="setAsFavourite()" [disabled]="vrVideo.reported">
           <mat-icon [ngClass]="{'has-fav': vrVideo.favourite}">favorite</mat-icon>
         </button>
         <button mat-icon-button aria-label="More actions" [matMenuTriggerFor]="menu">
@@ -72,7 +72,7 @@
           </span>
         </div>
         <div>
-          <button mat-raised-button color="primary" (click)="view()">
+          <button mat-raised-button color="primary" (click)="view()" [disabled]="vrVideo.reported">
             <mat-icon>play_circle</mat-icon> view
           </button>
         </div>
