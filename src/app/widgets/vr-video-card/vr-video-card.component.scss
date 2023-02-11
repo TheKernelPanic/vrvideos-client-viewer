@@ -1,6 +1,7 @@
 @import '../../../styles';
 
 :host {
+  color: $primary-color;
   >div {
     .vr-video-reported {
       opacity: 0.4;
@@ -14,7 +15,6 @@
         .mat-icon {
           margin: 0 5px 0 0;
         }
-        color: $primary-color;
         display: flex;
         align-items: center;
         font-weight: bold;
@@ -55,9 +55,14 @@
           box-sizing: border-box;
         }
         .description {
-          font-weight: bold;
-          font-size: 1.3rem;
           color: $primary-color;
+          h5 {
+            font-weight: bold;
+            font-size: 1.3rem;
+          }
+          p {
+            font-size: 0.6rem;
+          }
         }
         .actresses-list, .categories-list {
           cursor: pointer;

@@ -31,7 +31,8 @@
         </mat-menu>
       </div>
       <div class="description">
-        {{vrVideo.description}}
+        <h5>{{vrVideo.description}}</h5>
+        <p>{{vrVideo.original_filename}}</p>
       </div>
       <div class="viewed-times">
         <mat-icon>visibility</mat-icon>{{vrVideo.viewed_times}}
@@ -72,6 +73,7 @@
           </span>
         </div>
         <div>
+          <mat-icon *ngIf="vrVideo.backup_on !== null">save</mat-icon>
           <button mat-raised-button color="primary" (click)="view()" [disabled]="vrVideo.reported">
             <mat-icon>play_circle</mat-icon> view
           </button>

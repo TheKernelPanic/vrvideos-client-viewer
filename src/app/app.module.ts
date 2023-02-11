@@ -28,11 +28,11 @@ import { ServiceWorkerModule } from '@angular/service-worker';
       enabled: environment.production
     })
   ],
-    providers: [
-      {provide: 'APPLICATION_SERVER_HOST', useValue: environment.applicationServer.host},
-      {provide: 'CDN_IMAGES_HOST', useValue: environment.cdnImages.host}
-    ],
-    exports: [],
-    bootstrap: [AppComponent]
+  providers: [
+    {provide: 'APPLICATION_SERVER_HOST', useValue: environment.applicationServer.host},
+    {provide: 'CDN_IMAGES_HOST', useValue: environment.cdnImages.host}
+  ],
+  exports: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -52,4 +52,5 @@ export interface VrVideo {
   backup_on: HardDrive|null;
   created_at: string;
   images: ImageVrVideo[];
+  original_filename: string|null;
 }
