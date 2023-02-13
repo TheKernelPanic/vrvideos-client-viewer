@@ -53,4 +53,5 @@ export interface VrVideo {
   created_at: string;
   images: ImageVrVideo[];
   original_filename: string|null;
+  format: string;
 }

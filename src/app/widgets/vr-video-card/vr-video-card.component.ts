@@ -35,6 +35,23 @@ export class VrVideoCardComponent {
   public view(): void {
 
     const url = 'http://' + this.vrVideo.hosted_on.address + '/' + this.vrVideo.uuid + '/video.mp4';
+
+    this.router.navigate(['vr-videos/viewer/' + encodeURIComponent(url) + '/' + this.vrVideo.format]).then(
+      () => {
+        this.viewHttpService.request(this.vrVideo).subscribe({
+          next: () => {
+            this.vrVideo.viewed_times++;
+          },
+          error: (error: HttpErrorResponse) => {
+            this.router.navigate(['/error'], {queryParams: {code: error.status}}).then(null);
+          }
+        });
+      }
+    );
+  }
+
+  public download(): void {
+    const url = 'http://' + this.vrVideo.hosted_on.address + '/' + this.vrVideo.uuid + '/video.mp4';
     window.open(url, "_blank");
 
     this.viewHttpService.request(this.vrVideo).subscribe({

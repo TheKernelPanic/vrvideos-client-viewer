@@ -1,0 +1,11 @@
+@import './../../../styles';
+
+:host {
+  a {
+    font-size: 0.8rem;
+    color: $primary-color;
+  }
+  iframe {
+    height: 100vh;
+  }
+}

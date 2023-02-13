@@ -74,8 +74,11 @@
         </div>
         <div>
           <mat-icon *ngIf="vrVideo.backup_on !== null">save</mat-icon>
+          <button mat-raised-button color="primary" (click)="download()" [disabled]="vrVideo.reported">
+            <mat-icon>cloud_download</mat-icon>
+          </button>
           <button mat-raised-button color="primary" (click)="view()" [disabled]="vrVideo.reported">
-            <mat-icon>play_circle</mat-icon> view
+            <mat-icon>play_circle</mat-icon>
           </button>
         </div>
       </div>

@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import {WidgetsModule} from "../widgets/widgets.module";
 import {MatButtonModule} from "@angular/material/button";
+import { ViewerComponent } from './viewer/viewer.component';
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    ViewerComponent
   ],
   imports: [
     CommonModule,
