@@ -5,6 +5,10 @@
         <a href="./vr-videos/home">
           Back to home
         </a>
+        &nbsp;
+        <a [href]="iframeUrl" target="_blank">
+          Open video in new tab
+        </a>
       </div>
       <div class="video-container">
         <iframe #playerWeb width="100%" [src]="iframeUrl"></iframe>

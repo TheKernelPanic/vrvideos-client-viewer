@@ -10,6 +10,7 @@ import {WidgetsModule} from "./widgets/widgets.module";
 import {VrVideosModule} from "./vr-videos/vr-videos.module";
 import { ErrorComponent } from './error/error.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import packageJson from "../../package.json";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
   ],
   providers: [
     {provide: 'APPLICATION_SERVER_HOST', useValue: environment.applicationServer.host},
-    {provide: 'CDN_IMAGES_HOST', useValue: environment.cdnImages.host}
+    {provide: 'CDN_IMAGES_HOST', useValue: environment.cdnImages.host},
+    {provide: 'APP_VERSION', useValue: packageJson.version},
   ],
   exports: [],
   bootstrap: [AppComponent]
